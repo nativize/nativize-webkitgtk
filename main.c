@@ -12,7 +12,7 @@ static void activate(GtkApplication *app, gpointer user_data)
 	gtk_window_set_child(GTK_WINDOW(main_window), GTK_WIDGET(web_view));
 
 	// Load URL
-	webkit_web_view_load_uri(web_view, "https://github.com/nativize");
+	webkit_web_view_load_uri(web_view, NATIVIZE_URL);
 
 	// Show the window
 	gtk_window_present(GTK_WINDOW(main_window));
@@ -20,7 +20,7 @@ static void activate(GtkApplication *app, gpointer user_data)
 
 int main(int argc, char **argv)
 {
-    //TODO: we may pass identifier  here...
+	// TODO: we may pass identifier  here...
 	GtkApplication *app = gtk_application_new("com.example.WebKitGTK6App", G_APPLICATION_DEFAULT_FLAGS);
 	g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
 	int status = g_application_run(G_APPLICATION(app), argc, argv);

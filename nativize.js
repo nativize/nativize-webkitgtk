@@ -4,10 +4,10 @@ export const check = async () => {
 };
 export const prepare = async () => {
 };
-export const build = async () => {
+export const build = async ({ url }) => {
   //setup builddir
   await new Deno.Command("meson", {
-    args: ["setup", "--reconfigure", "builddir"],
+    args: ["setup", "--reconfigure", "builddir", "-Dnativize_url=" + url],
     cwd: import.meta.dirname,
   }).spawn().status;
   //compile
